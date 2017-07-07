@@ -1,0 +1,8 @@
+---
+- name: Ensure NFS utilities are installed.
+  apt: "name={{ item }} state=installed"
+  with_items:
+    - nfs-common
+
+- name: Ensure rpcbind is running.
+  service: name=rpcbind state=started enabled=yes

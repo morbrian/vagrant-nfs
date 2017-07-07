@@ -1,0 +1,14 @@
+---
+# NFS
+
+- hosts: nfsserver
+  remote_user: root
+
+  roles:
+    - { role: nfsserver, become: yes }
+
+- hosts: nfsclient
+  remote_user: root
+
+  roles:
+    - { role: nfsclient, become: yes }

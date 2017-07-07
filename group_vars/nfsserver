@@ -1,0 +1,1 @@
+nfs_exports: [{ path: '/exports/data1', options: '*(rw,sync,no_root_squash)' }, { path: '/exports/data2', options: '*(rw,sync,no_root_squash)' }]

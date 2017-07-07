@@ -1,0 +1,5 @@
+[nfsserver]
+192.168.111.4 ansible_ssh_pass=vagrant ansible_ssh_user=vagrant
+
+[nfsclient]
+192.168.111.5 ansible_ssh_pass=vagrant ansible_ssh_user=vagrant

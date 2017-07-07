@@ -1,0 +1,16 @@
+
+# Setup/install tasks.
+- include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- shell: if [ -z "$nfsoptions" ]; then  echo rw,sync,nfsvers=3; else echo $nfsoptions; fi
+  register: _nfsopts
+  sudo: false
+  connection: local
+
+- name: Mount all requested NFS paths
+  action: mount name={{ item.name }} src={{ item.src }} fstype=nfs opts={{ _nfsopts.stdout }} state=mounted
+  with_items: "{{ nfs_mounts }}"

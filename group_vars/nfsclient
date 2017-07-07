@@ -1,0 +1,1 @@
+nfs_mounts: [{ name: '/mnt/data1', src: '192.168.111.4:/exports/data1' }, { name: '/mnt/data2', src: '192.168.111.4:/exports/data2' }]
